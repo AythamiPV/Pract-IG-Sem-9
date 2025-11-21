@@ -637,12 +637,12 @@ function onWindowResize() {
 // ===== NUEVAS FUNCIONES PARA SHADERS =====
 
 function aplicarShadersPlanetas() {
-  // 1. Añadir erupciones solares realistas
+  // Añadir erupciones solares realistas
   const solarFlares = createSolarFlares(3.0);
   sol.add(solarFlares);
   solarFlares.userData.shaderUniforms = solarFlares.material.uniforms;
 
-  // 2. Mejorar atmósferas con shaders
+  // Mejorar atmósferas con shaders
   mejorarAtmosferas();
 
   // Inicializar el manager de shaders
@@ -726,7 +726,6 @@ function crearOrbitaCometa() {
 function crearCometa() {
   cometa = createComet();
 
-  // Posición inicial
   const data = cometa.userData;
   const r =
     (data.semiMajorAxis * (1 - data.eccentricity * data.eccentricity)) /
@@ -739,7 +738,6 @@ function crearCometa() {
   cometa.position.y = z * Math.sin(data.inclination);
   cometa.position.z = z * Math.cos(data.inclination);
 
-  // Crear órbita visual
   crearOrbitaCometa();
 
   scene.add(cometa);
@@ -864,11 +862,9 @@ function animarCometa() {
         (distanciaAlSol - distanciaMinimaCola) /
           (distanciaMaximaCola - distanciaMinimaCola);
       tailVisibility = Math.pow(factor, 1.5);
-      tailBrightness = 1.0 + tailVisibility * 1.5; // Brillos entre 1.0 y 2.5
+      tailBrightness = 1.0 + tailVisibility * 1.5;
     }
   }
-
-  // Aumentar brillo EXTRA cuando la cola es muy visible
   if (tailVisibility > 0.8) {
     tailBrightness *= 1.3; // 30% más brillante en máxima visibilidad
   }
@@ -883,7 +879,7 @@ function animarCometa() {
   // Hacer el núcleo MÁS BRILLANTE cuando está activo
   const nucleo = cometa.children[0];
   if (nucleo && nucleo.material) {
-    const brilloNucleo = 0.3 + tailVisibility * 0.5; // Más brillo
+    const brilloNucleo = 0.3 + tailVisibility * 0.5;
     nucleo.material.emissiveIntensity = brilloNucleo;
 
     // También aumentar el color base cerca del sol
