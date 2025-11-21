@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sistema Solar 3D</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="sceneContainer"></div>
+
+    <header>
+      <div class="controles">
+        <p><strong>Controles de Vuelo (Cámara libre)</strong></p>
+        <p>
+          <strong>Movimiento:</strong> W, A, S, D (Adelante, Izquierda, Atrás,
+          Derecha)
+        </p>
+        <p><strong>Vertical:</strong> R (Arriba), F (Abajo)</p>
+        <p><strong>Rotación:</strong> Haz clic y arrastra el ratón</p>
+      </div>
+      <div class="controles">
+        <p><strong>Controles de Vuelo (Cámara fija)</strong></p>
+        <p><strong>Rotación:</strong> Haz clic y arrastra el ratón</p>
+        <p><strong>Zoom:</strong> Rueda del ratón</p>
+      </div>
+
+      <div class="botones">
+        <button id="detenerOrbitaBtn">Detener Órbitas</button>
+        <button id="cambiarCamaraBtn">Cámara Fija</button>
+      </div>
+    </header>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
